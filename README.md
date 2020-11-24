@@ -49,3 +49,4 @@ After cloning the application, you need to install it's dependencies.
 * [Flask](http://flask.pocoo.org/) - a microframework for Python based on Werkzeug, Jinja 2 and good intentions
 * [Flask-Login](https://flask-login.readthedocs.io/en/latest/) - library for session management
 * [Flask-SQLAlchemy](https://flask-sqlalchemy.palletsprojects.com/en/2.x/) - to create a user model
+* [SQLite3](https://www.sqlite.org/index.html) - to store user login details
