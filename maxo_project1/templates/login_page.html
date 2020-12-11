@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;background-color:#f1f1f1;}
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px,0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+
+.imgcontainer {
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:20px;
+  width:20%;
+  height:20%
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+  width:20%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:10px;
+
+}
+
+.container1 {
+  padding: 16px;
+  width:20%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:10px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+
+}
+
+.error{
+color:white;
+background-color: #4CAF50;
+text-align:center;
+width:20%;
+margin-left:auto;
+margin-right:auto;
+}
+
+.clr{
+background-color:#FF0000;
+}
+
+.lbl{
+margin-left:auto;
+margin-right:auto;
+width:20%;
+
+
+}
+
+.spn{
+font-size:20px;
+font-weight:bold;
+}
+.spn:hover{
+opacity:0.8;
+}
+
+.lnk{
+text-decoration:none;
+
+}
+
+
+
+</style>
+</head>
+<body>
+
+
+
+<form action="{{url_for('home')}}" method="post">
+
+
+  <div class="imgcontainer">
+    <img src="./static/images/img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+  {% with keek = get_flashed_messages(with_categories=true) %}
+     {% if keek %}
+     {% for category,item in keek %}
+
+   <div class="{{category}}"><button type="button" class="clr" >{{item}}</button></div>
+     {% endfor %}
+    {% endif %}
+{% endwith %}
+
+
+  <div class="container" >
+    <label for="uname"><b>Student ID</b></label>
+    <input type="text" placeholder="Enter Student ID" name="student_id" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password"  required>
+
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+ </form>
+
+  <div class="container1" >
+    <form >
+   <button  formaction="/forgot_password" formmethod="post">Forgot Password?</button>
+    </form>
+  </div>
+  <div class="lbl">
+      <label >Login as a <a href="{{url_for('login_teacher') }}" class="lnk"><span class="spn">Teacher</span></a></label>
+  </div>
+
+
+
+
+
+
+
+</body>
+</html>
