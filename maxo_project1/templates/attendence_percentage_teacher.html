@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+<body>
+<lable>Subject Code : {{subject_code}}</lable>
+<div>
+    <table style="overflow-x:auto;">
+        <tr>
+        <th>Student_id</th>
+        <th>Number of classes conducted</th>
+        <th>Number of classes attended</th>
+        <th>Percentage</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{i[0]}}</td>
+
+            <td>{{i[2]}}</td>
+            <td>{{i[3]}}</td>
+            <td>{{i[4]}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    <div>
+        <form action="{{url_for('attendence_details_teacher') }}", method="post">
+            <label>Enter student ID to check individual attendence</label><br/>
+            <label>Student ID</label><br/>
+            <input type="text" name="stud_id" placeholder="Enter student_id" required><br/>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
