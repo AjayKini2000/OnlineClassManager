@@ -30,9 +30,9 @@ var handlePoll = function(member) {
       window.setTimeout(function(){
 
         // Move to a new location or you can do something else
-        window.location.href = "https://www.google.co.in";
+        window.location.href = "http://127.0.0.1:5000/";
 
-    }, 30000);
+    }, 1000);
       
       // Listen to vote event
       channel.bind('vote', function(data) {
@@ -47,5 +47,5 @@ var handlePoll = function(member) {
       });
 
       let calculatePercentage = function(total, amount){
-        return (amount / total) * 100 + "%"
+        return (amount / total) * 100 + "%";
       }
