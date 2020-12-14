@@ -1,5 +1,9 @@
-from flask import Flask, request, render_template, redirect, url_for,flash
+from flask import Flask, request, render_template, redirect, url_for,flash,jsonify, make_response
 import pymysql
+from dbsetup import create_connection, select_all_items, update_item
+from flask_cors import CORS, cross_origin
+from pusher import Pusher
+import simplejson
 
 global id
 global password
@@ -8,6 +12,17 @@ global teacher_password
 global table_name
 app=Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
+#sqlite database connection for poll system
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+pusher = Pusher(app_id=u'109121', key=u'3a2a219040583d8ee1b4', secret=u'09b8686698072e44711d', cluster=u'mt1')
+database = "./pythonsqlite.db"
+conn = create_connection(database)
+c = conn.cursor()
+
+def main():
+	global conn, c
 
 
 @app.route('/')
@@ -419,9 +434,38 @@ def attendence_details_teacher():
     except Exception as e:
         return "this is error page"
 
+#Routes for poll system
+@app.route('/polly')
+def index():
+	return render_template('index.html')
 
+@app.route('/admin')
+def admin():
+	return render_template('admin.html')
+
+@app.route('/vote', methods=['POST'])
+def vote():
+	data = simplejson.loads(request.data)
+	update_item(c, [data['member']])
+	output = select_all_items(c, [data['member']])
+	pusher.trigger(u'poll', u'vote', output)
+	return request.data
+
+#quiz 
+@app.route('/start')
+def start():
+	return render_template('start.html')
+
+@app.route('/game')
+def game():
+	return render_template('game.html')
+
+@app.route('/end')
+def end():
+	return render_template('end.html')
 
 
 
 if __name__ =='__main__':
-    app.run(debug=True, host="localhost", port=4001)
+    main()
+    app.run(debug=True)
