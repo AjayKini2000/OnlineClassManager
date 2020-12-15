@@ -32,7 +32,7 @@ var handlePoll = function(member) {
         // Move to a new location or you can do something else
         window.location.href = "http://127.0.0.1:5000/";
 
-    }, 1000);
+    }, 30000);
       
       // Listen to vote event
       channel.bind('vote', function(data) {
