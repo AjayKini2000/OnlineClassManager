@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Question form</title>
+
+
+        <style>
+            #div1{
+            display: inline-block;
+            border: 2px solid black;
+            border-radius: 5px;
+            z-index:5;
+            margin: 5px;
+            background-color: #ffffff;
+            padding: 16px 32px;
+            }
+            .tb{
+            border: none;
+            background: rgb(255, 255, 255);
+            opacity: 0.85;
+            z-index:10;
+            }
+            legend{
+            border: 1px solid;
+            border-radius: 5px;
+            padding: 16px 32px;
+            background-color: #ffffff;
+            }
+            fieldset{
+            background-color: rgb(85, 85, 85);
+            border-radius: 8px;
+            }
+            body{
+            background-color: rgb(199, 199, 199);
+            }
+            input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 140px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: medium;
+            }
+
+            input[type=submit]:hover {
+            background-color: #45a049;
+            }
+            input[type=text], select {
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: medium;
+            }
+            .qn{
+            font-size: large;
+            }
+            
+
+        </style>
+    </head>
+    <body>
+        <form action="{{url_for('question_review')}}", method="POST">
+            <fieldset>
+                <legend ><input type="text" class="tb qn" name="question" value="" placeholder="Enter the question here.." size = "150" /></legend>
+                <div id="div1">
+                    <input class="rd" type="radio" name="radio-set" id="radio-1" value="option1" />
+                    <input type="text" class="tb" name="option1" value="" placeholder="Option 1" />
+                </div><br>
+                <div id="div1">
+                    <input class="rd" type="radio" name="radio-set" id="radio-1" value="option2" />
+                    <input type="text" class="tb" name="option2" value="" placeholder="Option 2" />
+                </div><br>
+                <div id="div1">
+                    <input class="rd" type="radio" name="radio-set" id="radio-1" value="option3" checked= />
+                    <input type="text" class="tb" name="option3" value="" placeholder="Option 3" />
+                </div><br>
+                <div id="div1">
+                    <input class="rd" type="radio" name="radio-set" id="radio-1" value="option4" checked= />
+                    <input type="text" class="tb" name="option4" value="" placeholder="Option 4" />
+                </div><br>
+                <input type="submit" class="button" value="Submit">
+            </fieldset>
+            
+            
+        </form>
+
+
+    </body>
+</html>
