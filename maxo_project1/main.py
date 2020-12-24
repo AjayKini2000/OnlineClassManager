@@ -504,7 +504,7 @@ def question_review():
                 ); """
         cur.execute(query)
         cur.execute("DELETE FROM Questions;")
-        query = f"INSERT INTO Questions VALUES({'question'}, {'option1'}, {'option2'}, {'option3'}, {'option4'}, {'correctOption'});"
+        query = f"INSERT INTO Questions VALUES('{question}', '{option1}', '{option2}', '{option3}', '{option4}', '{correctOption}');"
         cur.execute(query)
         db.close()
         return render_template('question_review.html', question=question, option1=option1, option2=option2, option3=option3, option4=option4, correctOption=correctOption)
