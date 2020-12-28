@@ -441,7 +441,18 @@ def attendence_details_teacher():
 
 @app.route('/polly')
 def index():
-    return render_template('index.html')
+    try:
+        db = pymysql.connect(host="sujithkh.heliohost.org", user="sujithkh_maxoproject", password="maxoproject",
+                             database="sujithkh_maxo_project", autocommit=True, cursorclass=pymysql.cursors.DictCursor)
+        cur = db.cursor()
+        query = "SELECT * FROM Questions"
+        cur.execute(query)
+        data = cur.fetchone()
+        db.close()
+        return render_template('index.html', question=data['question'], option1=data['option1'], option2=data['option2'], option3=data['option3'], option4=data['option4'])
+
+    except Exception as e:
+        return f"this is error page  {e}"
 
 
 @app.route('/admin')
