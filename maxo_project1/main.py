@@ -5,6 +5,7 @@ from flask_cors import CORS, cross_origin
 from pusher import Pusher
 import simplejson
 
+exec(open('dbsetup.py').read())
 global id
 global password
 global teacher_id
