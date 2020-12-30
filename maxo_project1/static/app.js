@@ -1,5 +1,5 @@
 var pollMembers = document.querySelectorAll('.poll-member')
-var members = ['Go', 'Python', 'PHP', 'Ruby']
+var members = ['A', 'B', 'C', 'D']
 
   // Sets up click events for all the cards on the DOM
 pollMembers.forEach((pollMember, index) => {

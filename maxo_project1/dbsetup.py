@@ -54,10 +54,10 @@ def main():
     delete_table(conn)
     # create items table
     create_table(conn)
-    create_item(conn, ["Go"])
-    create_item(conn, ["Python"])
-    create_item(conn, ["PHP"])
-    create_item(conn, ["Ruby"])
+    create_item(conn, ["A"])
+    create_item(conn, ["B"])
+    create_item(conn, ["C"])
+    create_item(conn, ["D"])
     print("Connection established!")
 
 if __name__ == '__main__':
