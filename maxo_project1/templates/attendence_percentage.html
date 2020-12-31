@@ -5,32 +5,86 @@
     <title>Title</title>
 </head>
 <style>
-    table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
-}
+    div {
+  
+  background-image: url('..\static\images.library.jpg')
+} 
+    
 
-th, td {
-  text-align: left;
-  padding: 8px;
-}
+    
+    .content-table  {
+        border-collapse: collapse;
+        margin: 10px 0;
+        font-size: 0.5cm;
+        min-width: 200px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0  20px rgba(0, 0, 0, 0.15);
 
-tr:nth-child(even){background-color: #f2f2f2}
+    }
+    .content-table thead tr {
+        background-color: #808080;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+    }
+        
+
+    .content-table th,
+    .content-table td {
+        padding: 12px 15px;
+
+    }
+    .content-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+    .content-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+
+    }
+    .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #808080;
+    }
+    .content-table tbody tr.active-row {
+        font-weight: bold;
+        color: #808080;
+    }
+    input {
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 2px;
+
+
+    }
+    
+    #container {
+        text-align: center;
+    }
+    div {
+        text-align: center;
+        
+        
+    }
+    
+
+    
+
+
 </style>
-<body>
+<body style="font-family: Candara;">
 <div>
-    <table style="overflow-x:auto;">
-        <tr>
-        <th>Student_id</th>
-        <th>subject_code</th>
+    
+    <table  class="content-table">
+        <tr align="center">
+        <th>Student ID</th>
+        <th>subject Code</th>
         <th>Number of classes conducted</th>
         <th>Number of classes attended</th>
         <th>Percentage</th>
         </tr>
         {% for i in data %}
-        <tr>
+        <tr align="center">
             <td>{{i[0]}}</td>
             <td>{{i[1]}}</td>
             <td>{{i[2]}}</td>
