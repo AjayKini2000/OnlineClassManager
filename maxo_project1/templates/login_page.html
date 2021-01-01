@@ -1,124 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif;background-color:#f1f1f1;}
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px,0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-
-
-.imgcontainer {
-  text-align: center;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:20px;
-  width:20%;
-  height:20%
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-  width:20%;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:10px;
-
-}
-
-.container1 {
-  padding: 16px;
-  width:20%;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:10px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-
-}
-
-.error{
-color:white;
-background-color: #4CAF50;
-text-align:center;
-width:20%;
-margin-left:auto;
-margin-right:auto;
-}
-
-.clr{
-background-color:#FF0000;
-}
-
-.lbl{
-margin-left:auto;
-margin-right:auto;
-width:20%;
-
-
-}
-
-.spn{
-font-size:20px;
-font-weight:bold;
-}
-.spn:hover{
-opacity:0.8;
-}
-
-.lnk{
-text-decoration:none;
-
-}
-
-
-
-</style>
+<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="../static/images/icons"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../static/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../static/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/css/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/main.css">
+<!--===============================================================================================-->
 </head>
 <body>
-
-
-
-<form action="{{url_for('home')}}" method="post">
-
-
-  <div class="imgcontainer">
-    <img src="./static/images/img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
-  {% with keek = get_flashed_messages(with_categories=true) %}
+<div class="limiter">
+		<div class="container-login100" style="background-image: url('../static/images/bg-01.jpg');">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" action="{{url_for('home')}}" method="post">
+				{% with keek = get_flashed_messages(with_categories=true) %}
      {% if keek %}
      {% for category,item in keek %}
 
@@ -126,29 +40,81 @@ text-decoration:none;
      {% endfor %}
     {% endif %}
 {% endwith %}
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Log in
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<label for="uname"><b>Student ID</b></label>
+						<input class="input100" type="text" name="student_id" placeholder="Username">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+					
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<label for="psw"><b>Password</b></label>
+						<input class="input100" type="password" name="password" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+					<div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Remember me
+						</label>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+					</form>
+					<div class="text-center p-t-90">
+					<form >
+						<button  formaction="/forgot_password" formmethod="post">Forgot Password?</button>
+					</form>	
+					</div>
+					
+					<div class="lbl">
+                      <label >Login as a <a href="{{url_for('login_teacher') }}" class="lnk"><span class="spn">Teacher</span></a></label>
+                    </div>
+				<!/form>
+			</div>
+		</div>
+	</div>
 
 
-  <div class="container" >
-    <label for="uname"><b>Student ID</b></label>
-    <input type="text" placeholder="Enter Student ID" name="student_id" required>
+	<div id="dropDownSelect1"></div>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password"  required>
 
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
- </form>
 
-  <div class="container1" >
-    <form >
-   <button  formaction="/forgot_password" formmethod="post">Forgot Password?</button>
-    </form>
-  </div>
-  <div class="lbl">
-      <label >Login as a <a href="{{url_for('login_teacher') }}" class="lnk"><span class="spn">Teacher</span></a></label>
-  </div>
+
+
+<script src="../static/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/bootstrap/js/popper.js"></script>
+	<script src="../static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/daterangepicker/moment.min.js"></script>
+	<script src="../static/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/main.js"></script>
+
+
+
+
+<
+
 </body>
 </html>
