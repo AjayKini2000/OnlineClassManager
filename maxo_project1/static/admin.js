@@ -1,8 +1,8 @@
 var dataPoints = [
-    { label: "Go", y: 0 },
-    { label: "Python", y: 0 },
-    { label: "PHP", y: 0 },
-    { label: "Ruby", y: 0 },
+    { label: "A", y: 0 },
+    { label: "B", y: 0 },
+    { label: "C", y: 0 },
+    { label: "D", y: 0 },
   ]
   var chartContainer = document.querySelector('#chartContainer');
   
