@@ -47,5 +47,5 @@ var handlePoll = function(member) {
       });
 
       let calculatePercentage = function(total, amount){
-        return (amount / total) * 100 + "%";
+        return (amount / total) * 100 + "%"
       }

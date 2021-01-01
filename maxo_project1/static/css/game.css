@@ -1,87 +1,112 @@
-.choice-container {
-  display: flex;
-  margin-bottom: 0.5rem;
-  width: 40%;
-  font-size: 1.8rem;
-  border: 0.1rem solid rgb(86, 165, 235, 0.25);
-  background-color: white;
-  border-radius: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: snow; 
 }
-
-#options1{
-display: flex;
-justify-content: space-between;
+body{
+    background: #373B44;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+h1{
+    font-family:'Noto Sans JP', sans-serif;
+    color: snow;
+    font-size: 80px;
+    font-weight: lighter;
+}
+#header{
+    max-width: 800px;
+    padding: 20px;
+    margin: auto;
+    border-radius: 10px;
+    text-align: center;
+    
+}
+#question{
+    max-width: 900px;
+    /* padding: 30px; */
+    margin: 30px auto;
+    margin-bottom: 60px;
+    border-radius: 10px;
+    font-size: 22px;
+}
+#question:hover{
+    font-size: 23px;
+}
+.option-holder{
+    max-width: 900px;
+    height: 130px;
+    margin: 35px auto;
+    border-radius: 10px;
+}
+.option{
+    cursor: pointer;
+    width: 48%;
+    border: 2px solid snow;
+    padding: 15px;
+    margin: 5px ;
+    border-radius: 10px;
+    height: 56px;
 
 }
-#options2{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  
-  }
+.option:hover{
+    cursor: pointer;
+    /* background-color:mediumorchid; */
+    box-shadow: 0 0.6rem 1.6rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+    font-size:18px ;
 
-.choice-container:hover {
-  cursor: pointer;
-  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
-  transform: translateY(-0.1rem);
-  transition: transform 150ms;
-  
 }
-
-.choice-prefix {
-  padding: 1.5rem 2.5rem;
-  background-color: #ebc356;
-  color: white;
-  border-radius: 20px;
+.option-holder div{
+    /* width: 48%; */
+    float: left;
+    font-weight: bold;
+    font-size: 16px;
 }
-
-.choice-text {
-  padding: 1.5rem;
-  width: 100%;
+#time-section{
+    max-width: 700px;
+    padding: 25px;
+    height: 280px;
+    margin: auto;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bold;
 }
-
+#time{
+    display:flex;
+    justify-content: center;
+    width: 300px;
+    border: 3px solid snow;
+    padding: 5px;
+    margin: 8px auto;
+    border-radius: 10px;
+    background-color: rgba(83, 80, 245, 0.671);
+}
+#qst{
+    display: flex;
+    justify-content: center;
+    width: 120px;
+    border: 3px solid snow;
+    padding: 5px;
+    margin: auto;
+    border-radius: 10px;
+    background-color: rgba(83, 80, 245, 0.671);
+    
+}
+.prefix{
+    margin-right: 10px;
+}
 .correct {
-  background-color: #28a745;
-}
-
+    background-color: #28a745;
+    
+    
+  }
+  
 .incorrect {
-  background-color: #dc3545;
-}
-
-/* HUD */
-
-#hud {
-  display: flex;
-  justify-content: space-between;
-}
-
-.hud-prefix {
-  text-align: center;
-  font-size: 2rem;
-}
-
-.hud-main-text {
-  text-align: center;
-}
-
-#progressBar {
-  width: 20rem;
-  height: 4rem;
-  border: 0.3rem solid rgb(2, 33, 43);
-  margin-top: 1.5rem;
-  border-radius: 10px;
-}
-
-#progressBarFull {
-  height: 3.4rem;
-  background-color: rgb(12, 187, 21);
-  width: 0%;
-  border-radius: 10px;
-}
- 
-#title{
-  margin: 0 auto;
-  text-align: center;
-  padding-top: 10px;
-  color: wheat;
-}
+    background-color: #dc3545;
+    
+  }
