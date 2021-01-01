@@ -1,125 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Login</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial, Helvetica, sans-serif;background-color:#f1f1f1;}
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-}
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px,0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  opacity: 0.8;
-}
-
-
-
-.imgcontainer {
-  text-align: center;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:20px;
-  width:20%;
-  height:20%
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-  width:20%;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:10px;
-
-}
-
-.container1 {
-  padding: 16px;
-  width:20%;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:10px;
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-
-}
-
-.error{
-color:white;
-background-color: red;
-text-align:center;
-width:20%;
-margin-left:auto;
-margin-right:auto;
-}
-
-.clr{
-background-color:#F50000
-
-}
-
-.lbl{
-margin-left:auto;
-margin-right:auto;
-width:20%;
-
-
-}
-
-.spn{
-font-size:20px;
-font-weight:bold;
-}
-.spn:hover{
-opacity:0.8;
-}
-
-.lnk{
-text-decoration:none;
-}
-
-
-
-</style>
+	<title>Login V12</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="../static/images1/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor1bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts1/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts1/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor1/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../static/vendor1/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendor1/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/css1/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/css1/main.css">
+<!--===============================================================================================-->
 </head>
 <body>
-
-
-
-<form action="{{url_for('home_teacher')}}" method="post">
-
-
-  <div class="imgcontainer">
-    <img src="./static/images/img_avatar2.png" alt="Avatar" class="avatar">
-  </div>
-
-  {% with keek = get_flashed_messages(with_categories=true) %}
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('../static/images1/img-01.jpg');">
+			<div class="wrap-login100 p-t-190 p-b-30">
+				<form class="login100-form validate-form" action="{{url_for('home_teacher')}}" method="post">
+				{% with keek = get_flashed_messages(with_categories=true) %}
      {% if keek %}
      {% for category,item in keek %}
 
@@ -127,35 +37,73 @@ text-decoration:none;
      {% endfor %}
     {% endif %}
 {% endwith %}
+					<div class="login100-form-avatar">
+						<img src="../static/images/img_avatar2.png" alt="AVATAR">
+					</div>
 
+					<span class="login100-form-title p-t-20 p-b-45">
+						Teachers Login
+					</span>
 
-  <div class="container" >
-    <label for="uname"><b>Teacher ID</b></label>
-    <input type="text" placeholder="Enter Teacher ID" name="teacher_id" required>
+					<div class="wrap-input100 validate-input m-b-10" data-validate = "Username is required">
+						<label for="uname"><b>Teacher ID</b></label>
+						<input class="input100" type="text" name="teacher_id" placeholder="Enter Teacher ID">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user"></i>
+						</span>
+					</div>
+					
+					<div class="wrap-input100 validate-input m-b-10" data-validate = "Password is required">
+						<label for="psw"><b>Password</b></label>
+						<input class="input100" type="password" name="teacher_password" placeholder="Enter Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock"></i>
+						</span>
+					</div>
+					
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="teacher_password"  required>
+					<div class="text-center w-full p-t-25 p-b-30">
+					<label>
+							<input type="checkbox" checked="checked" name="remember"> Remember me
+					</label>
+					</div>
 
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
- </form>
+					<div class="container-login100-form-btn p-t-10">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+					</form>
+					<div class="text-center p-t-90">
+					<form >
+						<button  formaction="/forgot_password_teacher" formmethod="post">Forgot Password?</button>
+					</form>	
+					</div>
+					
+					<!<div class="text-center w-full">
+						<!a class="txt1" href="#">
+							<!i class="fa fa-long-arrow-right"></i>						
+						<!/a>
+					<!/div>
+				<!/form>
+			</div>
+		</div>
+	</div>
+	
+	
 
-  <div class="container1" >
-    <form >
-   <button  formaction="{{url_for('forgot_password_teacher') }}" formmethod="post">Forgot Password?</button>
-    </form>
-  </div>
-  <div class="lbl">
-      <label >Login as a <a href="{{url_for('login') }}" class="lnk"><span class="spn">Student</span></a></label>
-  </div>
-
-
-
-
-
+	
+<!--===============================================================================================-->	
+	<script src="../static/vendor1/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor1/bootstrap/js/popper.js"></script>
+	<script src="../static/vendor1/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendor1/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/js1/main.js"></script>
 
 </body>
 </html>
