@@ -3,13 +3,28 @@
 <head>
 	<meta charset="utf-8">
 	<title>Python Poll Admin</title>
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <style>
+    body{
+      background: #1e3c72;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2a5298, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2a5298, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+    .main{
+      margin-top: 10%;
+    }
+   
+  </style>
 </head>
 <body>
 	<div class="main">
     <div class="container">
       <h1>Chart</h1>
       <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+      <form action="{{url_for('hometeacher')}}">
+        <input type="submit" value="Done" />
+    </form>
     </div>
   </div>
 

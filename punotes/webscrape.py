@@ -16,5 +16,4 @@ def notes():
     return render_template('display.html', values=values)
 
 if __name__ == '__main__':
-    app.run(debug = True)
-© 2021 GitHub, Inc.
+    app.run(host='localhost',port=3000)
