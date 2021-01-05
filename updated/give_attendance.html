@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Attendance</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body style="margin-left:550px; margin-top: 100px;">
+    {% with keek = get_flashed_messages(with_categories=true) %}
+     {% if keek %}
+     {% for category,item in keek %}
+
+    <div ><label style="color:green">{{item}}</label></div>
+     {% endfor %}
+    {% endif %}
+{% endwith %}
+        <h1>Attendance</h1>
+        <form action="{{url_for('upattend')}}" method="post">
+            <label for="s">Subject Name:</label>
+            <input list="sname" id="sub" name="sub" />
+            <datalist id="sname">
+            <option value="a">
+            <option value="b">
+            <option value="c">
+            </datalist>
+            <p>
+                <label for="d">Date:</label>
+                <input type="date" name="date" id="date">   
+            </p>
+            
+            <p>
+                <label for="b1">B1:</label>
+                <input list="b11" id="b1" name="b1" />
+                <datalist id="b11">
+                <option value="P">
+                <option value="A">
+                </datalist>
+            </p>
+            <p>
+                <label for="b2">B2:</label>
+                <input list="b22" id="b2" name="b2" />
+                <datalist id="b22">
+                <option value="P">
+                <option value="A">
+                </datalist>
+            </p>
+            <p>
+                <label for="b3">B3:</label>
+                <input list="b33" id="b3" name="b3" />
+                <datalist id="b33">
+                <option value="P">
+                <option value="A">
+                </datalist>
+            </p>
+            <p>
+                <label for="b4">B4:</label>
+                <input list="b44" id="b4" name="b4" />
+                <datalist id="b44">
+                <option value="P">
+                <option value="A">
+                </datalist>
+            </p>
+            <p>
+                <label for="b5">B5:</label>
+                <input list="b55" id="b5" name="b5" />
+                <datalist id="b55">
+                <option value="P">
+                <option value="A">
+                </datalist>
+            </p>
+            <p>
+                <label for="b6">B6:</label>
+                <input list="b66" id="b6" name="b6" />
+                <datalist id="b66">
+                <option value="P">
+                <option value="A">
+                </datalist>
+            </p>
+            <p>
+                <label for="b7">B7:</label>
+                <input list="b77" id="b7" name="b7" />
+                <datalist id="b77">
+                <option value="P">
+                <option value="A">
+                </datalist>
+            </p>
+            <p>
+                <label for="b8">B8:</label>
+                <input list="b88" id="b8" name="b8" />
+                <datalist id="b88">
+                <option value="P">
+                <option value="A">
+                </datalist>
+            </p>
+            <p>
+                <label for="b9">B9:</label>
+                <input list="b99" id="b9" name="b9" />
+                <datalist id="b99">
+                <option value="P">
+                <option value="A">
+                </datalist>
+            </p>
+            <p>
+                <label for="b10">B10:</label>
+                <input list="b110" id="b10" name="b10" />
+                <datalist id="b110">
+                <option value="P">
+                <option value="A">
+                </datalist>
+            </p>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
