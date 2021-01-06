@@ -3,36 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-</head>
+
 <style>
-        table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
-}
+    body {
+  
+       background-image: url('../static/images/water1.jpg');
+       background-size: cover;
+      
+        }
+        
 
-th, td {
-  text-align: left;
-  padding: 8px;
-}
 
-tr:nth-child(even){background-color: #f2f2f2}
+    
+    .content-table  {
+        border-collapse: collapse;
+        margin: auto;
+        font-size: 1cm;
+        min-width: 400px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0  20px rgba(0, 0, 0, 0.15);
+        margin-top: 10%;
+
+    }
+    .content-table thead tr {
+        background-color: #808080;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+    }
+        
+
+    .content-table th,
+    .content-table td {
+        padding: 12px 15px;
+
+    }
+    .content-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+    .content-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+
+    }
+    .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #808080;
+    }
+    .content-table tbody tr.active-row {
+        font-weight: bold;
+        color: #808080;
+    }
+    #container {
+        text-align: center;
+    }
+    div {
+        text-align: center;
+    }
+
+
+
 </style>
+</head>
 <body>
-
-<label>Student ID: {{Student_ID}}</label><br/>
+    <div>
+    
+    <br>
+    <br>
+    <br>
+<label><Font face="Candara"><Font size="9">Student ID: {{Student_ID}}</label><br/>
+    <br>
+    
+    
 <label>Subject Code: {{Subject_Code}}</label></br>
+<table class="content-table">
 
-<table style="overflow-x:auto">
-
-    <tr>
-        <th>Date</th>
+    <tr align="center">
+        <th >Date</th>
         <th>Status</th>
     </tr>
 
     {% for date,status in empty_dict.items() %}
-    <tr>
+    <tr align="center">
         <td>{{date}}</td>
         <td>{{status}}</td>
     </tr>
@@ -41,7 +92,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 
 
-
+</div>
 </table>
 
 </body>
