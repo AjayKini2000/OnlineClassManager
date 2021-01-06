@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-</head>
+
 <style>
-    div {
+    body {
   
-  background-image: url('..\static\images.library.jpg')
-} 
+       background-image: url('../static/images/color.jpg');
+       background-size: cover;
+ 
+   }
+   
+   
     
 
     
     .content-table  {
         border-collapse: collapse;
-        margin: 10px 0;
+        margin: auto;
         font-size: 0.5cm;
         min-width: 200px;
         border-radius: 5px 5px 0 0;
         overflow: hidden;
         box-shadow: 0 0  20px rgba(0, 0, 0, 0.15);
+        margin-top: 10%;
 
     }
     .content-table thead tr {
@@ -66,12 +71,34 @@
         
         
     }
-    
+    .submit1 {
+        position: relative;
+        text-align: center;
+        width: 300px;
+        padding: 10px;
+        font-size: 19px;
+        color: #000000;
+        font-family: poppins;
+        font-weight: 100;
+        border: 5px solid #000000;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        border-radius: 100px;
+        transition: 0.1s;
+    }
+    .submit1:hover {
+        box-shadow: 0 5px 50px 0 #15f4ee inset, 0 5px 50px 0 #15f4ee,
+        0 5px 50px 0 #15f4ee inset,0 5px 50px 0 #15f4ee;
+        text-shadow: 0 0 5px #15f4ee, 0 0 5px #15f4ee;
+    }
 
     
-
+    
+    
 
 </style>
+</head>
 <body style="font-family: Candara;">
 <div>
     
@@ -94,9 +121,13 @@
         {% endfor %}
 
     </table>
+    <br>
+    <br>
+    
+    
     <div>
         <form action="{{url_for('attendence_details')}}" method="post">
-            <input type="submit" value="Click here for more info">
+            <input type="submit" class="submit1" value="Click here for more info">
         </form>
     </div>
 </div>
