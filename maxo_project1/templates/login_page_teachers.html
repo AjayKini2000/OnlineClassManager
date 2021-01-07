@@ -25,15 +25,15 @@
 </head>
 <body>
 	
-	<div class="limiter">
+	<div class="limiter" >
 		<div class="container-login100" style="background-image: url('../static/images1/img-01.jpg');">
-			<div class="wrap-login100 p-t-190 p-b-30">
+			<div class="wrap-login100 p-t-70 p-b-30" >
 				<form class="login100-form validate-form" action="{{url_for('home_teacher')}}" method="post">
 				{% with keek = get_flashed_messages(with_categories=true) %}
      {% if keek %}
      {% for category,item in keek %}
 
-   <div class="{{category}}"><button type="button" class="clr" >{{item}}</button></div>
+   <div class="{{category}}" ><button type="button" class="clr" >{{item}}</button></div>
      {% endfor %}
     {% endif %}
 {% endwith %}
@@ -76,7 +76,7 @@
 						</button>
 					</div>
 					</form>
-					<div class="text-center p-t-90">
+					<div class="text-center p-t-40">
 					<form >
 						<button  formaction="/forgot_password_teacher" formmethod="post">Forgot Password?</button>
 					</form>	

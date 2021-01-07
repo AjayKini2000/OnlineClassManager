@@ -30,7 +30,7 @@ var handlePoll = function(member) {
       window.setTimeout(function(){
 
         // Move to a new location or you can do something else
-        window.location.href = "http://127.0.0.1:5000/";
+        window.location.href = "http://127.0.0.1:5000/home";
 
     }, 30000);
       

@@ -17,4 +17,4 @@ def notes():
 
 if __name__ == '__main__':
     app.run(debug = True)
-© 2021 GitHub, Inc.
+
