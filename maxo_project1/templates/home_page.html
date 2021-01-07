@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
@@ -32,8 +32,8 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Notes</a>
           </li>
-          <li id="parentDropdown" class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="/some-link" data-target="#parentDropdown" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <li id="parentDropdown dropdown" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle dropbtn" href="/some-link" data-target="#parentDropdown" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Attendance
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -58,26 +58,13 @@
   </nav>
 
   <div><img src="../static/images/cover.png" alt=""></div>
-  <div class="centered typewriter"><h1>WELCOME!</h1></div>
-  <div class="centeredt">
+  <div class="centered typewriter "><h1>WELCOME!</h1></div>
+  <div class="centeredt d-none d-xl-block d-lg-block ">
     <h1>We provide the best <strong>tools</strong> to</h1>
     <h1>help you manage <strong>online class</strong></h1>
     <a href="#features" class="main-button-slider" id="dis" style="margin-left: 35%;">Discover More</a>
   </div>
- 
-      <!-- <div class="welcome-area" id="welcome">
-      <div class="header-text">
-        <div class="container">
-            <div class="row">
-                <div class="offset-xl-3 col-xl-6 offset-lg-2 col-lg-8 col-md-12 col-sm-12">
-                    <h1>We provide the best <strong>strategy</strong><br>to grow up your <strong>business</strong></h1>
-                    <p>Softy Pinko is a professional Bootstrap 4.0 theme designed by Template Mo 
-                    for your company at absolutely free of charge</p>
-                    <a href="#features" class="main-button-slider">Discover More</a>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!-- ***** Header Text End ***** -->
 </div> 
  
@@ -90,10 +77,10 @@
                     <!-- ***** Features Small Item Start ***** -->
                     <div  class="col-lg-4 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
                         <div class="features-small-item">
-                            <div >
+                            <div>
                                 <i class="fas fa-poll fa-10x"></i>
                             </div>
-                            <h5 class="features-title"><a href="{{url_for('homenew')}}">POLL</a></h5>
+                            <h5 class="features-title"><a href="{{url_for('index')}}">POLL</a></h5>
                             
                             <p>Customize anything in this template to fit your website needs</p>
                             
@@ -138,7 +125,7 @@
                           </div>
                           <h5 class="features-title">
                             <form action="{{url_for('attendence_percentage_subject_a')}}" method="post">
-                              <button type="submit" name="your_name" value="your_value" class="btn-link" id="edit" style="background-color: white; color: #007bff;"><h5> MATHEMATICS(Attendance)</h5></button>
+                              <button type="submit" name="your_name" value="your_value" class="btn-link" id="edit" style="background-color: white; color: #007bff;"><h5 class="spec"> MATHEMATICS(Attendance)</h5></button>
                             </form>
                            
                           </h5>
@@ -155,7 +142,7 @@
                           </div>
                           <h5 class="features-title">
                             <form action="{{url_for('attendence_percentage_subject_b')}}" method="post">
-                              <button type="submit" name="your_name" value="your_value" class="btn-link" id="edit" style="background-color: white; color: #007bff;"><h5>PHYSICS(Attendance)</h5></button>
+                              <button type="submit" name="your_name" value="your_value" class="btn-link" id="edit" style="background-color: white; color: #007bff;"><h5 class="spec">PHYSICS(Attendance)</h5></button>
                             </form>
                             
                           </h5>
@@ -173,7 +160,7 @@
                           
                           <h5 class="features-title">
                             <form action="{{url_for('attendence_percentage_subject_c')}}" method="post">
-                              <button type="submit" name="your_name" value="your_value" class="btn-link" id="edit" style="background-color: white; color: #007bff;" ><h5>CHEMISTRY(Attendance)</h5></button>
+                              <button type="submit" name="your_name" value="your_value" class="btn-link" id="edit " style="background-color: white; color: #007bff;" ><h5 class="spec">CHEMISTRY(Attendance)</h5></button>
                             </form>
                             
                           </h5>
@@ -192,28 +179,18 @@
   <div class="container bottom_border">
   <div class="row">
   <div class=" col-sm-4 col-md col-sm-4  col-12 col">
-  <h5 class="headin5_amrc col_white_amrc pt2">Find us</h5>
+  <h5 class="headin5_amrc col_white_amrc pt2">About</h5>
   <!--headin5_amrc-->
-  <p class="mb10">OnlineClass LLC is an Indian multinational technology company that specializes in Internet-related services and products, which include online advertising technologies, a search engine, cloud computing, software, and hardware.</p>
-  <p><i class="fa fa-location-arrow"></i> 9878/25 sec 9 rohini 35 </p>
-  <p><i class="fa fa-phone"></i>  +91-9999878398  </p>
-  <p><i class="fa fa fa-envelope"></i> info@example.com  </p>
-  
-  
+  <p class="mb10">OnlineClass is an application that includes features for online class managing such as real-time poll and attendance monitoring built using Python and Flask.</p>
   </div>
   
   
   <div class=" col-sm-4 col-md  col-6 col">
-  <h5 class="headin5_amrc col_white_amrc pt2">Quick links</h5>
+  <h5 class="headin5_amrc col_white_amrc pt2">Contact</h5>
   <!--headin5_amrc-->
-  <ul class="footer_ul_amrc">
-  <li><a href="http://webenlance.com">Image Rectoucing</a></li>
-  <li><a href="http://webenlance.com">Clipping Path</a></li>
-  <li><a href="http://webenlance.com">Hollow Man Montage</a></li>
-  <li><a href="http://webenlance.com">Ebay & Amazon</a></li>
-  <li><a href="http://webenlance.com">Hair Masking/Clipping</a></li>
-  <li><a href="http://webenlance.com">Image Cropping</a></li>
-  </ul>
+  <p><i class="fa fa-location-arrow"></i> Shakti Nagar, Mangalore, Karnataka 575016 </p>
+  <p><i class="fa fa-phone"></i>  +91-9999878398  </p>
+  <p><i class="fa fa fa-envelope"></i> sushikshawkc@gmail.com  </p>
   <!--footer_ul_amrc ends here-->
   </div>
   
@@ -222,12 +199,9 @@
   <h5 class="headin5_amrc col_white_amrc pt2">Quick links</h5>
   <!--headin5_amrc-->
   <ul class="footer_ul_amrc">
-  <li><a href="http://webenlance.com">Remove Background</a></li>
-  <li><a href="http://webenlance.com">Shadows & Mirror Reflection</a></li>
-  <li><a href="http://webenlance.com">Logo Design</a></li>
-  <li><a href="http://webenlance.com">Vectorization</a></li>
-  <li><a href="http://webenlance.com">Hair Masking/Clipping</a></li>
-  <li><a href="http://webenlance.com">Image Cropping</a></li>
+  <li><a href="{{url_for('index')}}"><i class="fas fa-poll"></i>  Poll</a></li>
+  <li><a href="{{url_for('start')}}"><i class="fas fa-users"></i> Quiz</a></li>
+  <li><a href="#"><i class="fas fa-book-reader "></i>  Notes</a></li>
   </ul>
   <!--footer_ul_amrc ends here-->
   </div>
@@ -238,33 +212,48 @@
   <!--headin5_amrc ends here-->
   
   <ul class="footer_ul2_amrc">
-  <li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
-  <li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
-  <li><a href="#"><i class="fab fa-twitter fleft padding-right"></i> </a><p>Lorem Ipsum is simply dummy text of the printing...<a href="#">https://www.lipsum.com/</a></p></li>
+  <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/sandesha-dsouza-/">Sandesha Dsouza</a></li>
+  <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/akshatha-n-k-0511601bb/">Akshatha N K
+  </a></li>
+  <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/swathi-prabhu-839186181/">Swathi Prabhu
+  </a></li>
+  <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/shreeram-bhat-b8b9011b9/">Shreeram Bhat
+  </a></li>
+  <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/ajaykini2000/">Ajay Kini
+  </a></li>
   </ul>
   <!--footer_ul2_amrc ends here-->
   </div>
+  <div class=" col-sm-4 col-md  col-12 col">
+    <h5 class="headin5_amrc col_white_amrc pt2">&nbsp;</h5>
+    <!--headin5_amrc ends here-->
+    
+    <ul class="footer_ul2_amrc">
+    <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/sujith-kharvi-18a254170/">Sujith Kharvi
+    </a></li>
+    <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/akshay-v-nayak-50719668/">Akshay V.Nayak
+    </a></li>
+    <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/yash-s-prabhudesai-0002171ab/">Yash S Prabhudesai
+    </a></li>
+    <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/sriraksha-nayak-4b5248181/">Sriraksha Nayak
+    </a></li>
+    </ul>
+    <!--footer_ul2_amrc ends here-->
+    </div>
   </div>
   </div>
   
   
   <div class="container">
-  <ul class="foote_bottom_ul_amrc">
-  <li><a href="http://webenlance.com">Home</a></li>
-  <li><a href="http://webenlance.com">About</a></li>
-  <li><a href="http://webenlance.com">Services</a></li>
-  <li><a href="http://webenlance.com">Pricing</a></li>
-  <li><a href="http://webenlance.com">Blog</a></li>
-  <li><a href="http://webenlance.com">Contact</a></li>
-  </ul>
+  
   <!--foote_bottom_ul_amrc ends here-->
-  <p class="text-center">Copyright @2021 | Designed With by <a href="#">Sushiksha</a></p>
+  <p class="text-center">Copyright @2021 | Designed With by <a href="https://sushiksha.konkanischolarship.com/">Sushiksha</a></p>
   
   <ul class="social_footer_ul">
-  <li><a href="http://webenlance.com"><i class="fab fa-facebook-f"></i></a></li>
-  <li><a href="http://webenlance.com"><i class="fab fa-twitter"></i></a></li>
-  <li><a href="http://webenlance.com"><i class="fab fa-linkedin"></i></a></li>
-  <li><a href="http://webenlance.com"><i class="fab fa-instagram"></i></a></li>
+  <li><a href="https://www.facebook.com/vkssfalumni/"><i class="fab fa-facebook-f"></i></a></li>
+  <li><a href="https://twitter.com/SushikshaWkc"><i class="fab fa-twitter"></i></a></li>
+  <li><a href="https://www.linkedin.com/company/sushiksha/"><i class="fab fa-linkedin"></i></a></li>
+  <li><a href="https://www.instagram.com/vkssf_alumni/?hl=en"><i class="fab fa-instagram"></i></a></li>
   </ul>
   <!--social_footer_ul ends here-->
   </div>

@@ -154,6 +154,7 @@ def home():
             flash("Invalid Password", category="error")
             return redirect(url_for('login'))
         except Exception as e:
+            print(e)
             return "this is error page"
 
 @app.route('/home')
@@ -381,10 +382,13 @@ def attendence_details():
                 date_list.append(inverted_comma_date)
 
         dict_details = {}
+        print(date_list)
+        print(status_list)
         
         for i in range(0, len(date_list)):
             dict_details[date_list[i]] = status_list[i]
         print("hello")
+
         return render_template('attendence_details.html', data=data, Student_ID=student_id, Subject_Code=sub_code,
                                empty_dict=dict_details, len=len(date_list))
     except Exception as e:
@@ -464,13 +468,19 @@ def upattend():
     b88 = request.form['b8']
     b99 = request.form['b9']
     b1010 = request.form['b10']
+    print(b11)
     #inserting a table name
     #select date and subject table name
-    date = '{}'.format(dat)
-    table_name='subject_{}'.format(sub)
-    corr_table='subject_{}_attendence'.format(sub)
+    #date = '{}'.format(dat)
+    date = dat
+    #table_name='subject_{}'.format(sub)
+    table_name=f"subject_{sub}"
+    print("table name is "+ table_name)
+    #corr_table='subject_{}_attendence'.format(sub)
+    corr_table=f"subject_{sub}_attendence"
+    print("corr_table is "+ corr_table)
     #print(date)A
-    details = {'b1': 'b11', 'b2': 'b22','b3':'b33','b4':'b44','b5':'b55','b6':'b66','b7':'b77','b8':'b88','b9':'b99','b10':'b1010'}
+    details = {'b1': b11, 'b2': b22,'b3':b33,'b4':b44,'b5':b55,'b6':b66,'b7':b77,'b8':b88,'b9':b99,'b10':b1010}
     # details = {'100': 'A', '101': 'A', '102': 'A','103':'A','104':'A','105':'A','106':'A','107':'P','108':'P','109':'P'}
     try:
         # db = pymysql.connect(host="localhost", user="root", password="keekkeek", database="dbms", autocommit=True)
@@ -487,6 +497,7 @@ def upattend():
         query = f"alter table {table_name} add column(`%s` varchar(20))"
         #query = "alter table subject_b add column(`%s` varchar(20))"
         cur.execute(query,(date))
+        print("Column updated")
 
         #query="show columns from subject_a"
         #query="alter table subject_a drop column `%s` "
@@ -521,11 +532,11 @@ def upattend():
             bb = f"select * from {table_name} where student_id='{student_ids[i]}'"
             cur.execute(bb)
             val = cur.fetchall()
-            print(val)
-            #print(val[0])
+            print( val)
+            print(val[0])
             no_of_classes_attended = val[0].count('P' or 'p')
             print(no_of_classes_attended)
-            attendence_percent = (no_of_classes_attended / no_of_classes_conducted) * 100
+            attendence_percent =round((no_of_classes_attended / no_of_classes_conducted) * 100)
             print(attendence_percent)
             query = f"""update {corr_table} set No_of_classes_conducted='{no_of_classes_conducted}',
             No_of_classes_attended='{no_of_classes_attended}',
@@ -537,8 +548,9 @@ def upattend():
             q=f"select * from {corr_table}"
             cur.execute(q)
             print(cur.fetchall())
-            db.close()
-            return render_template('login_page.html')
+        db.close()
+        flash("Attendence Update sucessfully", category="error")
+        return render_template('home_page_teacher.html')
 
     except Exception as e:
         return f"this is error page  {e}"

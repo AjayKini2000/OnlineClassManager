@@ -31,7 +31,7 @@
 <div class="limiter">
 		<div class="container-login100" style="background-image: url('../static/images/bg-01.jpg');">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" action="{{url_for('home')}}" method="post">
+				<form class="login100-form validate-form pt-0" action="{{url_for('home')}}" method="post">
 				{% with keek = get_flashed_messages(with_categories=true) %}
      {% if keek %}
      {% for category,item in keek %}
@@ -40,11 +40,11 @@
      {% endfor %}
     {% endif %}
 {% endwith %}
-					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
+					<span class="login100-form-logo ">
+						<i class="zmdi zmdi-landscape pt-40"></i>
 					</span>
 
-					<span class="login100-form-title p-b-34 p-t-27">
+					<span class="login100-form-title p-b-20 p-t-27">
 						Log in
 					</span>
 
@@ -74,14 +74,14 @@
 						</button>
 					</div>
 					</form>
-					<div class="text-center p-t-90">
+					<div class="text-center p-t-30">
 					<form >
 						<button  formaction="/forgot_password" formmethod="post">Forgot Password?</button>
 					</form>	
 					</div>
 					
 					<div class="lbl">
-                      <label >Login as a <a href="{{url_for('login_teacher') }}" class="lnk"><span class="spn">Teacher</span></a></label>
+                      <label >Login as a <a href="{{url_for('login_teacher') }}" class="lnk"><span class="spn" style="color: rgb(112, 183, 241);"><strong>Teacher</strong></span></a></label>
                     </div>
 				<!/form>
 			</div>

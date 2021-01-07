@@ -4,11 +4,13 @@
 	<meta charset="utf-8">
 	<title>Python Poll Admin</title>
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/d243434da5.js" crossorigin="anonymous"></script>
+  <link id="theme" rel="stylesheet" type="text/css" href="..\static\css\style.css" title="theme" /> 
   <style>
     body{
-      background: #1e3c72;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #2a5298, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #2a5298, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      background: #56CCF2;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     }
     .main{
@@ -18,16 +20,146 @@ background: linear-gradient(to right, #2a5298, #1e3c72); /* W3C, IE 10+/ Edge, F
   </style>
 </head>
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #231069;">
+    <a class="navbar-brand" href="{{url_for('hometeacher')}}" id="a"><strong>OnlineClass</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav ml-auto">
+         
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('question_form')}}">Poll</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('start')}}">Quiz</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Notes</a>
+          </li>
+          <li id="parentDropdown dropdown" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle dropbtn" href="/some-link" data-target="#parentDropdown" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Attendance
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <form action="{{url_for('attend')}}">
+                <button type="submit" name="your_name" value="your_value" class="btn-link" id="edit">Update</button>
+              </form>
+              <form action="{{url_for('attendence_percentage_subject_a_teacher')}}" method="post">
+                <button type="submit" name="your_name" value="your_value" class="btn-link" id="edit" >Subject-A</button>
+              </form>
+              <form action="{{url_for('attendence_percentage_subject_b_teacher')}}" method="post">
+                <button type="submit" name="your_name" value="your_value" class="btn-link" id="edit">Subject-B</button>
+              </form>
+              <form action="{{url_for('attendence_percentage_subject_c_teacher')}}" method="post">
+                <button type="submit" name="your_name" value="your_value" class="btn-link" id="edit">Subject-C</button>
+              </form>
+            </div>
+          </li>
+          <li class="nav-item">
+            <form action="{{url_for('logout')}}" method="post">
+              <button type="submit" name="your_name" value="your_value" class="btn-link"  >Logout</button>
+          </form>
+          </li>
+      </ul>
+      </div>
+  </nav>
 	<div class="main">
     <div class="container">
-      <h1>Chart</h1>
+      <h1>Results:</h1>
       <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-      <form action="{{url_for('hometeacher')}}">
-        <input type="submit" value="Done" />
-    </form>
+      <a class="btn btn-success" href="{{url_for('hometeacher')}}" role="button" style="margin-left: 45%; margin-top: 5%; padding: 1% 5%;">Done</a>
+
     </div>
   </div>
+<!-- ***** Features Small End ***** -->
 
+<footer class="footer" style="margin-top: 5%;">
+  <div class="container bottom_border">
+  <div class="row">
+  <div class=" col-sm-4 col-md col-sm-4  col-12 col">
+  <h5 class="headin5_amrc col_white_amrc pt2">About</h5>
+  <!--headin5_amrc-->
+  <p class="mb10">OnlineClass is an application that includes features for online class managing such as real-time poll and attendance monitoring built using Python and Flask.</p>
+  </div>
+  
+  
+  <div class=" col-sm-4 col-md  col-6 col">
+  <h5 class="headin5_amrc col_white_amrc pt2">Contact</h5>
+  <!--headin5_amrc-->
+  <p><i class="fa fa-location-arrow"></i> Shakti Nagar, Mangalore, Karnataka 575016 </p>
+  <p><i class="fa fa-phone"></i>  +91-9999878398  </p>
+  <p><i class="fa fa fa-envelope"></i> sushikshawkc@gmail.com  </p>
+  <!--footer_ul_amrc ends here-->
+  </div>
+  
+  
+  <div class=" col-sm-4 col-md  col-6 col">
+  <h5 class="headin5_amrc col_white_amrc pt2">Quick links</h5>
+  <!--headin5_amrc-->
+  <ul class="footer_ul_amrc">
+  <li><a href="{{url_for('question_form')}}"><i class="fas fa-poll"></i>&nbsp;Poll</a></li>
+  <li><a href="{{url_for('attend')}}"><i class="fas fa-clipboard-list"></i>&nbsp;Update Attendance</a></li>
+  <li><a href="{{url_for('start')}}"><i class="fas fa-users"></i>&nbsp;Quiz</a></li>
+  <li><a href="#"><i class="fas fa-book-reader "></i>&nbsp;Notes</a></li>
+  </ul>
+  <!--footer_ul_amrc ends here-->
+  </div>
+  
+  
+  <div class=" col-sm-4 col-md  col-12 col">
+  <h5 class="headin5_amrc col_white_amrc pt2">Follow us</h5>
+  <!--headin5_amrc ends here-->
+  
+  <ul class="footer_ul2_amrc">
+  <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/sandesha-dsouza-/">Sandesha Dsouza</a></li>
+  <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/akshatha-n-k-0511601bb/">Akshatha N K
+  </a></li>
+  <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/swathi-prabhu-839186181/">Swathi Prabhu
+  </a></li>
+  <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/shreeram-bhat-b8b9011b9/">Shreeram Bhat
+  </a></li>
+  <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/ajaykini2000/">Ajay Kini
+  </a></li>
+  </ul>
+  <!--footer_ul2_amrc ends here-->
+  </div>
+  <div class=" col-sm-4 col-md  col-12 col">
+    <h5 class="headin5_amrc col_white_amrc pt2">&nbsp;</h5>
+    <!--headin5_amrc ends here-->
+    
+    <ul class="footer_ul2_amrc">
+    <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/sujith-kharvi-18a254170/">Sujith Kharvi
+    </a></li>
+    <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/akshay-v-nayak-50719668/">Akshay V.Nayak
+    </a></li>
+    <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/yash-s-prabhudesai-0002171ab/">Yash S Prabhudesai
+    </a></li>
+    <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/sriraksha-nayak-4b5248181/">Sriraksha Nayak
+    </a></li>
+    </ul>
+    <!--footer_ul2_amrc ends here-->
+    </div>
+  </div>
+  </div>
+  
+  
+  <div class="container">
+  
+  <!--foote_bottom_ul_amrc ends here-->
+  <p class="text-center">Copyright @2021 | Designed With by <a href="https://sushiksha.konkanischolarship.com/">Sushiksha</a></p>
+  
+  <ul class="social_footer_ul">
+  <li><a href="https://www.facebook.com/vkssfalumni/"><i class="fab fa-facebook-f"></i></a></li>
+  <li><a href="https://twitter.com/SushikshaWkc"><i class="fab fa-twitter"></i></a></li>
+  <li><a href="https://www.linkedin.com/company/sushiksha/"><i class="fab fa-linkedin"></i></a></li>
+  <li><a href="https://www.instagram.com/vkssf_alumni/?hl=en"><i class="fab fa-instagram"></i></a></li>
+  </ul>
+  <!--social_footer_ul ends here-->
+  </div>
+  
+  </footer>
     <!-- SCRIPTS -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>

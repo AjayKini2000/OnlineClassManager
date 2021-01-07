@@ -1,54 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+    <meta charset="utf-8">
+    <title>Attendance</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/d243434da5.js" crossorigin="anonymous"></script>
+    <link id="theme" rel="stylesheet" type="text/css" href="..\static\css\style.css" title="theme" /> 
+  
+
 <style>
-    table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
+    body {
+  
+       background-image: url('../static/images/water.jpg');
+       background-size: cover;
+
 }
 
-th, td {
-  text-align: left;
-  padding: 8px;
-}
+    .content-table {
+        border-collapse: collapse;
+        margin: auto;
+        font-size: 0.5cm;
+        min-width: 200px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0  20px rgba(0, 0, 0, 0.15);
+        margin-top: 1%;
 
-tr:nth-child(even){background-color: #f2f2f2}
+    }
+    .content-table thead tr {
+        background-color: #808080;
+        color: #ffffff;
+        text-align: center;
+        font-weight: bold;
+    }
+        
+
+    .content-table th,
+    .content-table td {
+        padding: 12px 15px;
+
+    }
+    .content-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+    .content-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+
+    }
+    .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #808080;
+    }
+    .content-table tbody tr.active-row {
+        font-weight: bold;
+        color: #808080;
+    }
+    button {
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 2px;
+
+    }
+    
+    #container {
+        text-align: center;
+    }
+    
+    .submit1 {
+        position: relative;
+        text-align: center;
+        width: 300px;
+        padding: 10px;
+        font-size: 19px;
+        color: #000000;
+        font-family: poppins;
+        font-weight: 100;
+        border: 5px solid #000000;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        border-radius: 100px;
+        transition: 0.1s;
+    }
+    .submit1:hover {
+        box-shadow: 0 5px 50px 0 #15f4ee inset, 0 5px 50px 0 #15f4ee,
+        0 5px 50px 0 #15f4ee inset,0 5px 50px 0 #15f4ee;
+        text-shadow: 0 0 5px #15f4ee, 0 0 5px #15f4ee;
+    }
+    .stud {
+        width: 20%;
+        border:2px solid #000000;
+        border-radius: 10px;
+        margin: 8px 0;
+        outline: none;
+        padding: 8px;
+        box-sizing: border-box;
+        transition: .1s;
+    }
+    .stud:focus {
+        border-color: #15f4ee;
+        box-shadow:0 0 20px 0 #15f4ee;
+    }
 </style>
-<body>
-<lable>Subject Code : {{subject_code}}</lable>
-<div>
-    <table style="overflow-x:auto;">
-        <tr>
-        <th>Student_id</th>
-        <th>Number of classes conducted</th>
-        <th>Number of classes attended</th>
-        <th>Percentage</th>
-        </tr>
-        {% for i in data %}
-        <tr>
+</head>
+<body >
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #231069;">
+        <a class="navbar-brand" href="{{url_for('hometeacher')}}" id="a"><strong>OnlineClass</strong></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav ml-auto">
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('question_form')}}">Poll</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('start')}}">Quiz</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Notes</a>
+              </li>
+              <li id="parentDropdown dropdown" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropbtn" href="/some-link" data-target="#parentDropdown" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Attendance
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <form action="{{url_for('attend')}}">
+                    <button type="submit" name="your_name" value="your_value" class="btn-link" id="edit">Update</button>
+                  </form>
+                  <form action="{{url_for('attendence_percentage_subject_a_teacher')}}" method="post">
+                    <button type="submit" name="your_name" value="your_value" class="btn-link" id="edit" >Subject-A</button>
+                  </form>
+                  <form action="{{url_for('attendence_percentage_subject_b_teacher')}}" method="post">
+                    <button type="submit" name="your_name" value="your_value" class="btn-link" id="edit">Subject-B</button>
+                  </form>
+                  <form action="{{url_for('attendence_percentage_subject_c_teacher')}}" method="post">
+                    <button type="submit" name="your_name" value="your_value" class="btn-link" id="edit">Subject-C</button>
+                  </form>
+                </div>
+              </li>
+              <li class="nav-item">
+                <form action="{{url_for('logout')}}" method="post">
+                  <button type="submit" name="your_name" value="your_value" class="btn-link"  >Logout</button>
+              </form>
+              </li>
+          </ul>
+          </div>
+      </nav>
+      <div style="text-align: center;">
+        <br>
+        <br>
+        <label><Font face="Candara"><Font size="8">Subject Code : {{subject_code}}</Font></Font></label>
+        <br> 
+      <div style="text-align: center;">
+        <table class="content-table " >
+          <tr align="center">
+            <th>Student ID</th>
+            <th>Number of classes conducted</th>
+            <th>Number of classes attended</th>
+            <th>Percentage</th>
+          </tr>
+          {% for i in data %}
+          <tr align="center">
             <td>{{i[0]}}</td>
-
             <td>{{i[2]}}</td>
             <td>{{i[3]}}</td>
             <td>{{i[4]}}</td>
-        </tr>
-        {% endfor %}
-
+          </tr>
+          {% endfor %}
     </table>
-    <div>
+    <div style="text-align: center;">
         <form action="{{url_for('attendence_details_teacher') }}", method="post">
-            <label>Enter student ID to check individual attendence</label><br/>
-            <label>Student ID</label><br/>
-            <input type="text" name="stud_id" placeholder="Enter student_id" required><br/>
-            <button type="submit">Submit</button>
+            <br>
+            <label><Font face="Candara"><Font size="6">Enter student ID to check individual attendence</Font></Font></label><br>
+            <label>Student ID</label><br>
+            <input  type="text" class="stud" name="stud_id" placeholder="Enter Student ID" required><br/>
+            <br>
+            <button type="SUBMIT" class="submit1">Submit</button>
+            <br>
+            <br>
+            <br>
         </form>
     </div>
 </div>
+</div>
+
+<footer class="footer">
+    <div class="container bottom_border">
+    <div class="row">
+    <div class=" col-sm-4 col-md col-sm-4  col-12 col">
+    <h5 class="headin5_amrc col_white_amrc pt2">About</h5>
+    <!--headin5_amrc-->
+    <p class="mb10">OnlineClass is an application that includes features for online class managing such as real-time poll and attendance monitoring built using Python and Flask.</p>
+    </div>
+    
+    
+    <div class=" col-sm-4 col-md  col-6 col">
+    <h5 class="headin5_amrc col_white_amrc pt2">Contact</h5>
+    <!--headin5_amrc-->
+    <p><i class="fa fa-location-arrow"></i> Shakti Nagar, Mangalore, Karnataka 575016 </p>
+    <p><i class="fa fa-phone"></i>  +91-9999878398  </p>
+    <p><i class="fa fa fa-envelope"></i> sushikshawkc@gmail.com  </p>
+    <!--footer_ul_amrc ends here-->
+    </div>
+    
+    
+    <div class=" col-sm-4 col-md  col-6 col">
+    <h5 class="headin5_amrc col_white_amrc pt2">Quick links</h5>
+    <!--headin5_amrc-->
+    <ul class="footer_ul_amrc">
+    <li><a href="{{url_for('question_form')}}"><i class="fas fa-poll"></i>&nbsp;Poll</a></li>
+    <li><a href="{{url_for('attend')}}"><i class="fas fa-clipboard-list"></i>&nbsp;Update Attendance</a></li>
+    <li><a href="{{url_for('start')}}"><i class="fas fa-users"></i>&nbsp;Quiz</a></li>
+    <li><a href="#"><i class="fas fa-book-reader "></i>&nbsp;Notes</a></li>
+    </ul>
+    <!--footer_ul_amrc ends here-->
+    </div>
+    
+    
+    <div class=" col-sm-4 col-md  col-12 col">
+    <h5 class="headin5_amrc col_white_amrc pt2">Follow us</h5>
+    <!--headin5_amrc ends here-->
+    
+    <ul class="footer_ul2_amrc">
+    <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/sandesha-dsouza-/">Sandesha Dsouza</a></li>
+    <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/akshatha-n-k-0511601bb/">Akshatha N K
+    </a></li>
+    <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/swathi-prabhu-839186181/">Swathi Prabhu
+    </a></li>
+    <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/shreeram-bhat-b8b9011b9/">Shreeram Bhat
+    </a></li>
+    <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/ajaykini2000/">Ajay Kini
+    </a></li>
+    </ul>
+    <!--footer_ul2_amrc ends here-->
+    </div>
+    <div class=" col-sm-4 col-md  col-12 col">
+      <h5 class="headin5_amrc col_white_amrc pt2">&nbsp;</h5>
+      <!--headin5_amrc ends here-->
+      
+      <ul class="footer_ul2_amrc">
+      <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/sujith-kharvi-18a254170/">Sujith Kharvi
+      </a></li>
+      <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/akshay-v-nayak-50719668/">Akshay V.Nayak
+      </a></li>
+      <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/yash-s-prabhudesai-0002171ab/">Yash S Prabhudesai
+      </a></li>
+      <li><a href="#"><i class="fab fa-linkedin"></i> </a><a href="https://www.linkedin.com/in/sriraksha-nayak-4b5248181/">Sriraksha Nayak
+      </a></li>
+      </ul>
+      <!--footer_ul2_amrc ends here-->
+      </div>
+    </div>
+    </div>
+    
+    
+    <div class="container">
+    
+    <!--foote_bottom_ul_amrc ends here-->
+    <p class="text-center">Copyright @2021 | Designed With by <a href="https://sushiksha.konkanischolarship.com/">Sushiksha</a></p>
+    
+    <ul class="social_footer_ul">
+    <li><a href="https://www.facebook.com/vkssfalumni/"><i class="fab fa-facebook-f"></i></a></li>
+    <li><a href="https://twitter.com/SushikshaWkc"><i class="fab fa-twitter"></i></a></li>
+    <li><a href="https://www.linkedin.com/company/sushiksha/"><i class="fab fa-linkedin"></i></a></li>
+    <li><a href="https://www.instagram.com/vkssf_alumni/?hl=en"><i class="fab fa-instagram"></i></a></li>
+    </ul>
+    <!--social_footer_ul ends here-->
+    </div>
+    
+    </footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 </html>
