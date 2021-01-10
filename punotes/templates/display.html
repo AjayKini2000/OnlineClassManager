@@ -5,12 +5,145 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>display</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-   
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style media="screen">
+          .container{
+            margin: 0;
+            position: absolute;
+            top: 30%;
+            left: 40%;
+            }
+          .edit{
+            margin: 10% 2%;
+            padding: 20% 70%;
+          }
+          body{
+            background: #7F7FD5;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+          }
+        </style>
+
     </head>
     <body>
-        {% for value in values %}
-        <p></p>
-        <a href="http://pue.kar.nic.in/PUE/PUE{{value}}">{{value}}</a>
-        {% endfor %}
-    </body>       
-</html>
+      <h1 class="text-center" style="text-color:rgb(0,0,0);" >PCM Notes</h1>
+      <div class="container">
+       <div class="btn-group">
+       <button type="button" class="btn btn-danger btn-lg edit">Physics</button>
+       <button type="button" class="btn btn-danger dropdown-toggle
+        dropdown-toggle-split edit" data-toggle="dropdown">
+       </button>
+       <div class="dropdown-menu">
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[2]}}">Ch1</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[3]}}">Ch2</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[4]}}">Ch3</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[5]}}">Ch4</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[6]}}">Ch5</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[7]}}">Ch6</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[8]}}">Ch7</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[9]}}">Ch8</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[10]}}">Ch9</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[11]}}">Ch10</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[12]}}">Ch11</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[13]}}">Ch12</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[14]}}">Ch13</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[15]}}">Ch14</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[16]}}">Ch15</a>
+       </div>
+      </div>
+      <br>
+       <div class="btn-group">
+        <button type="button" class="btn btn-success btn-lg edit">Chemistry</button>
+        <button type="button" class="btn btn-success dropdown-toggle
+         dropdown-toggle-split edit" data-toggle="dropdown">
+        </button>
+        <div class="dropdown-menu">
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[17]}}">Ch1</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[18]}}">Ch2</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[19]}}">Ch3</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[20]}}">Ch4</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[21]}}">Ch5</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[22]}}">Ch6</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[23]}}">Ch7</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[24]}}">Ch8</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[25]}}">Ch9</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[26]}}">Ch10</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[27]}}">Ch11</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[28]}}">Ch12</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[29]}}">Ch13</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[30]}}">Ch14</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[31]}}">Ch15</a>
+         <div class="dropdown-divider"></div>
+         <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[32]}}">Ch16</a>
+        </div>
+       </div>
+       <br>
+       <div class="btn-group">
+       <button type="button" class="btn btn-warning btn-lg edit">Mathematics</button>
+       <button type="button" class="btn btn-warning dropdown-toggle
+        dropdown-toggle-split edit" data-toggle="dropdown">
+       </button>
+       <div class="dropdown-menu">
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[33]}}">Ch1</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[34]}}">Ch2</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[35]}}">Ch3</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[36]}}">Ch4</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[37]}}">Ch5</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[38]}}">Ch6</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[39]}}">Ch7</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[40]}}">Ch7A</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[41]}}">Ch7B</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[42]}}">Ch8</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[43]}}">Ch9</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[44]}}">Ch10</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[45]}}">Ch11</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="http://pue.kar.nic.in/PUE/PUE{{values[46]}}">Ch12</a>
+      </div>
+    </div>
+    </body>
+   </html>
