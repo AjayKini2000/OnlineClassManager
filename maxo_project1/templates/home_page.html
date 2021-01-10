@@ -30,7 +30,7 @@
             <a class="nav-link" href="{{url_for('start')}}">Quiz</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Notes</a>
+            <a class="nav-link" href="{{url_for('notes')}}">Notes</a>
           </li>
           <li id="parentDropdown dropdown" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle dropbtn" href="/some-link" data-target="#parentDropdown" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -107,7 +107,7 @@
                             <div >
                               <i class="fas fa-book-reader fa-10x"></i>
                             </div>
-                            <h5 class="features-title"><a href="#">NOTES</a></h5>
+                            <h5 class="features-title"><a href="{{url_for('notes')}}">NOTES</a></h5>
                             <p>Reading is to the mind what exercise is to the body.</p>
                         </div>
                     </div>
@@ -202,7 +202,7 @@
   <ul class="footer_ul_amrc">
   <li><a href="{{url_for('index')}}"><i class="fas fa-poll"></i>  Poll</a></li>
   <li><a href="{{url_for('start')}}"><i class="fas fa-users"></i> Quiz</a></li>
-  <li><a href="#"><i class="fas fa-book-reader "></i>  Notes</a></li>
+  <li><a href="{{url_for('notes')}}"><i class="fas fa-book-reader "></i>  Notes</a></li>
   </ul>
   <!--footer_ul_amrc ends here-->
   </div>

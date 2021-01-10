@@ -1,5 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for, flash, jsonify, make_response
 import pymysql
+import requests
+from bs4 import BeautifulSoup
 from dbsetup import create_connection, select_all_items, update_item
 from flask_cors import CORS, cross_origin
 from pusher import Pusher
@@ -641,6 +643,18 @@ def question_review():
     except Exception as e:
         return f"this is error page  {e}"
 
+#punotes
+values=[]
+
+@app.route('/notes')
+def notes():
+    page=requests.get('http://pue.kar.nic.in/PUE/support_html/recogn/ncert_IIqb.htm')
+    bSoup=BeautifulSoup(page.content,'html.parser')
+    links_list=bSoup.find_all('a')
+    for link in links_list:
+        if 'href' in link.attrs:
+            values.append(str(link.attrs['href'])+'\n')
+    return render_template('notes.html', values=values)
 
 if __name__ == '__main__':
     main()
