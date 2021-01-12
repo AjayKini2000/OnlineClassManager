@@ -26,20 +26,10 @@ After cloning the application, you need to install it's dependencies.
 
 > $ cd OnlineClassManager
 
-> $ pip install flask
-> $ pip install requests
-> $ pip install flask-sqlalchemy
-> $ pip install flask-login
-
-## Setup
-
-* In a terminal, you can set the FLASK_APP and FLASK_DEBUG values(For Windows replace export with set):
-> $ export FLASK_APP=project
-> $ export FLASK_DEBUG=1
+> $ pip install -r requirements.text
 
 ## Run the application
- 
-> $ flask run
+> $ python main.py
 
 > Open a web browser and open the URL displayed in the command line to see the Home page. e.g. http://127.0.0.1:5000/
 
